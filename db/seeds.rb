@@ -48,11 +48,11 @@ casablanca = Destination.create(name: 'Casablanca, Morocco', location: 'Africa')
 madagascar = Destination.create(name: 'Madagascar, ', location: 'Africa')
 tanzania = Destination.create(name: 'Tanzania', location: 'Africa')
 uganda = Destination.create(name: 'Uganda', location: 'Africa')
-sydney = Destination.create(name: 'Sydney', location: 'Austrailia')
-melbourne = Destination.create(name: 'Melbourne', location: 'Austrailia')
-cairns = Destination.create(name: 'Cairns', location: 'Austrailia')
-gold_coast = Destination.create(name: 'Gold Coast', location: 'Austrailia')
-newcastle = Destination.create(name: 'Newcastle', location: 'Austrailia')
+sydney = Destination.create(name: 'Sydney', location: 'Australia')
+melbourne = Destination.create(name: 'Melbourne', location: 'Australia')
+cairns = Destination.create(name: 'Cairns', location: 'Australia')
+gold_coast = Destination.create(name: 'Gold Coast', location: 'Australia')
+newcastle = Destination.create(name: 'Newcastle', location: 'Australia')
 
 
 
