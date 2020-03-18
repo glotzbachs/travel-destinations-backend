@@ -1,6 +1,8 @@
 class AttractionsController < ApplicationController
+    before_action :set_attraction, only: [:show, :update, :destroy]
 
     def index
+        @destination=Destination.find_by(id: params[:destination_id])
         if @destination
             @attractions = @destination.attractions
         else
@@ -10,6 +12,7 @@ class AttractionsController < ApplicationController
     end
 
     def show
+        @destination=Destination.find_by(id: params[:destination_id])
         if @destination
             @attractions = @destination.attractions.find_by(id: params[:id])
         else
@@ -19,11 +22,21 @@ class AttractionsController < ApplicationController
     end
 
     def create
-        @attraction = Attraction.new(attraction_params)
-        if @attraction.save
-            render json: @attraction
+        @destination=Destination.find_by(id: params[:destination_id])
+        if @destination
+            @attraction = @destination.attractions.build(attraction_params)
+            if @attraction.save
+                render json: @attraction
+            else
+                render json: {error: 'Attraction cannot be created'}
+            end
         else
-            render json: {error: 'Attraction cannot be created'}
+            @attraction = Attraction.new(attraction_params)
+            if @attraction.save
+                render json: @attraction
+            else
+                render json: {error: 'Attraction cannot be created'}
+            end
         end
     end
 
@@ -46,8 +59,8 @@ class AttractionsController < ApplicationController
 
     private
 
-    def set_destination
-        @destination= Destination.find_by(id: params[:destination_id])
+    def set_attraction
+        @attraction= Attraction.find_by(id: params[:id])
     end
 
     def attraction_params
